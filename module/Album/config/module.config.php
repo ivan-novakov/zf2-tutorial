@@ -27,7 +27,7 @@ return array(
             'rest-album' => array(
                 'type' => 'segment',
                 'options' => array(
-                    'route' => '/rest-album[/:id]',
+                    'route' => '/rest/albums[/:id]',
                     'constraints' => array(
                         'id' => '[0-9]+'
                     ),
@@ -36,8 +36,8 @@ return array(
                     )
                 )
             )
-            
         )
+        
     ),
     
     'view_manager' => array(
@@ -51,7 +51,17 @@ return array(
         'resources' => array(
             'Album\Controller\RestAlbumController' => array(
                 'listener' => 'Album\Listener\AlbumResourceListener',
-                'route_name' => 'rest-album'
+                'route_name' => 'rest-album',
+                'collection_name' => 'users',
+                'collection_http_options' => array(
+                    'get'
+                ),
+                'resource_http_options' => array(
+                    'get',
+                    'post',
+                    'put',
+                    'delete'
+                )
             )
         )
     )

@@ -3,12 +3,12 @@
 namespace Album\Listener;
 
 use Zend\EventManager\AbstractListenerAggregate;
-use Album\Model\AlbumTable;
 use Zend\EventManager\EventManagerInterface;
 use PhlyRestfully\ResourceEvent;
 use PhlyRestfully\Exception\DomainException;
-use Album\Model\Album;
 use PhlyRestfully\Exception\CreationException;
+use Album\Model\Album;
+use Album\Model\AlbumTable;
 
 
 class AlbumResourceListener extends AbstractListenerAggregate
@@ -77,7 +77,7 @@ class AlbumResourceListener extends AbstractListenerAggregate
         $album->id = $id;
         $album->artist = $data->artist;
         $album->title = $data->title;
-
+        
         $album = $this->persistence->saveAlbum($album);
         return $album;
     }
