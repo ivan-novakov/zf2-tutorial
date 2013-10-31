@@ -10,3 +10,8 @@ include 'init_autoloader.php';
 
 // Run the application!
 Zend\Mvc\Application::init(include 'config/application.config.php')->run()->send();
+
+function _dump($value)
+{
+    error_log(print_r($value, true));
+}
